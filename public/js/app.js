@@ -20,7 +20,7 @@ var app = function app() {
   // Init websocket
   var wsHostname = location.hostname,
       wsPort     = parseInt(location.port) + 1,
-      wsUrl      = 'ws://' + wsHostname + ':' + wsPort,
+      wsUrl      = 'ws://' + wsHostname + ':' + (isNaN(wsPort)? '81' : wsPort),
       wsConn     = new WebSocket(wsUrl);
 
   // Handler for open event
